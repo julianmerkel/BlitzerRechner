@@ -26,19 +26,27 @@ public class Screen3 extends AppCompatActivity {
         parameter = intent.getStringArrayListExtra("parameter");
 
         String result = "";
-        for (int i=0; i<parameter.size();i++){
-            result=result+parameter.get(i)+" ";
+        for (int i = 0; i < parameter.size(); i++) {
+            result = result + parameter.get(i) + " ";
         }
 
         String ort = parameter.get(0);
         int erlaubt = Integer.parseInt(parameter.get(1));
         int gefahren = Integer.parseInt(parameter.get(2));
-        String zuSchnell=  Integer.toString(gefahren-erlaubt);
-        String zuSchnellmitToleranz=  Integer.toString(gefahren-erlaubt-3);
-        String res = "Du bist "+ort+" "+zuSchnell+" km/h zu schnell gefahren.";
+        String zuSchnell = Integer.toString(gefahren - erlaubt);
+        String zuSchnellmitToleranz = "";
 
-        if (Boolean.parseBoolean(parameter.get(4))==true){
-            res= res+" Abzüglich Toleranz sind das "+zuSchnellmitToleranz+" km/h zu schnell.";
+        if (gefahren <= 100) {
+            zuSchnellmitToleranz = Integer.toString(gefahren - erlaubt - 3);
+        } else {
+            double d = 0.97 * gefahren;
+            int t = (int) d;
+            zuSchnellmitToleranz = Integer.toString(t - erlaubt);
+        }
+        String res = "Du bist " + ort + " " + zuSchnell + " km/h zu schnell gefahren.";
+
+        if (Boolean.parseBoolean(parameter.get(4)) == true) {
+            res = res + " Abzüglich Toleranz sind das " + zuSchnellmitToleranz + " km/h zu schnell.";
         }
 
 
