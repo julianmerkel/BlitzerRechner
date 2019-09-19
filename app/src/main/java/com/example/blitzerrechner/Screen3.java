@@ -30,7 +30,19 @@ public class Screen3 extends AppCompatActivity {
             result=result+parameter.get(i)+" ";
         }
 
-        textView.setText(result);
+        String ort = parameter.get(0);
+        int erlaubt = Integer.parseInt(parameter.get(1));
+        int gefahren = Integer.parseInt(parameter.get(2));
+        String zuSchnell=  Integer.toString(gefahren-erlaubt);
+        String zuSchnellmitToleranz=  Integer.toString(gefahren-erlaubt-3);
+        String res = "Du bist "+ort+" "+zuSchnell+" km/h zu schnell gefahren.";
+
+        if (Boolean.parseBoolean(parameter.get(4))==true){
+            res= res+" Abzüglich Toleranz sind das "+zuSchnellmitToleranz+" km/h zu schnell.";
+        }
+
+
+        textView.setText(res);
 
     }
 }
