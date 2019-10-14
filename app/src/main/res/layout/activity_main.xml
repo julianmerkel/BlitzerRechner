@@ -42,4 +42,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/word_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="609dp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"/>
+
+    <Button
+        android:id="@+id/button_speichern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Speichern"
+        android:focusableInTouchMode="false"
+        app:layout_constraintTop_toBottomOf="@+id/word_edit_text" />
+
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:focusableInTouchMode="false"
+        app:layout_constraintTop_toBottomOf="@+id/button_speichern" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

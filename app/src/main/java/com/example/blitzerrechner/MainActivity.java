@@ -4,10 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -19,14 +23,23 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView imageViewInnerorts;
     ImageView ImageViewAusserorts;
+    Button buttonHistory;
+    Button buttonSpeichern;
+    EditText editText;
     TextView textView;
     Intent intent;
+    //Intent intentHistory = new Intent(this, History.class);
     ArrayList<String> parameter;
+
+    private HistoryDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dao = HistoryRoomDatabase.getDatabase(this).historyDao();
+
         parameter = new ArrayList<>();
 
         for (int i =0; i<5;i++){
@@ -35,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         intent = new Intent(this, Screen2.class);
+
+
 
         imageViewInnerorts = findViewById(R.id.imageView2);
         ImageViewAusserorts = findViewById(R.id.imageView4);
@@ -58,5 +73,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        buttonSpeichern = findViewById(R.id.button_speichern);
+        buttonSpeichern.setOnClickListener(view -> {
+            saveVergehenOnClick();
+        });
+
+        buttonHistory = findViewById(R.id.buttonHistory);
+        buttonHistory.setOnClickListener((view) -> {
+            Intent intentHistory = new Intent(this, History.class);
+            startActivity(intentHistory);
+        });
+
+    }
+
+    private void saveVergehenOnClick() {
+        editText = findViewById(R.id.word_edit_text);
+        if(!editText.getText().toString().isEmpty()){
+            new SpeichernTask()
+                    .execute(new Vergehen(editText.getText().toString()));
+        }
+        String message = editText.getText().toString();
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "Die Geschwindigkeitsübertretung von " + message + " km/h wurde gespeichert.", Toast.LENGTH_LONG);
+        toast.show();
+        editText.setText("");
+    }
+
+    class SpeichernTask extends AsyncTask<Vergehen, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Vergehen... vergehen) {
+            dao.insert(vergehen[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
     }
 }
