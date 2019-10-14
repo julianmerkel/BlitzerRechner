@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageViewInnerorts;
     ImageView ImageViewAusserorts;
     Button buttonHistory;
-    Button buttonSpeichern;
-    EditText editText;
     TextView textView;
     Intent intent;
     //Intent intentHistory = new Intent(this, History.class);
@@ -74,11 +72,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        buttonSpeichern = findViewById(R.id.button_speichern);
-        buttonSpeichern.setOnClickListener(view -> {
-            saveVergehenOnClick();
-        });
-
         buttonHistory = findViewById(R.id.buttonHistory);
         buttonHistory.setOnClickListener((view) -> {
             Intent intentHistory = new Intent(this, History.class);
@@ -87,30 +80,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void saveVergehenOnClick() {
-        editText = findViewById(R.id.word_edit_text);
-        if(!editText.getText().toString().isEmpty()){
-            new SpeichernTask()
-                    .execute(new Vergehen(editText.getText().toString()));
-        }
-        String message = editText.getText().toString();
-        Context context = getApplicationContext();
-        Toast toast = Toast.makeText(context, "Die Geschwindigkeitsübertretung von " + message + " km/h wurde gespeichert.", Toast.LENGTH_LONG);
-        toast.show();
-        editText.setText("");
-    }
 
-    class SpeichernTask extends AsyncTask<Vergehen, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Vergehen... vergehen) {
-            dao.insert(vergehen[0]);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-        }
-    }
 }

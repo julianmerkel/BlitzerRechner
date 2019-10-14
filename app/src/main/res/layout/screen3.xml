@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_margin="5dp"
     tools:context=".Screen3">
 
 
@@ -13,11 +14,35 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:justificationMode="inter_word"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/textfield_background"
+        tools:ignore="MissingConstraints" />
+
+
+    <Button
+        android:id="@+id/button_speichern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Speichern"
+        android:background="@drawable/background_speichern_button"
+        android:focusableInTouchMode="false"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+    <Button
+        android:id="@+id/buttonHistory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:focusableInTouchMode="false"
+        android:text="History"
+        android:background="@drawable/background_history_button"
+        app:layout_constraintTop_toBottomOf="@+id/button_speichern" />
 
 
 
