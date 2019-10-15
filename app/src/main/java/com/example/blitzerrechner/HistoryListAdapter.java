@@ -1,5 +1,7 @@
 package com.example.blitzerrechner;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,13 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private List<Vergehen> vergehensList = Collections.emptyList();
 
+    private HistoryDao dao;
+    private Context mContext;
+
+    HistoryListAdapter(Context context){
+        mContext = context;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder
@@ -29,6 +38,12 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             (@NonNull RecyclerView.ViewHolder holder, int position) {
         TextView vergehensView = holder.itemView.findViewById(R.id.history_item);
         vergehensView.setText(vergehensList.get(position).getVergehen());
+
+        dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
+
+        holder.itemView.setOnClickListener((view) -> {
+            new DeleteTask().execute(vergehensList.get(position));
+        });
     }
 
     @Override
@@ -44,6 +59,22 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     class HistoryViewHolder extends RecyclerView.ViewHolder{
         public HistoryViewHolder(@NonNull View itemView) {
             super(itemView);
+        }
+    }
+
+
+    class DeleteTask extends AsyncTask<Vergehen, Void, List<Vergehen>>{
+
+        @Override
+        protected List<Vergehen> doInBackground(Vergehen... vergehen) {
+            dao.delete(vergehen[0]);
+            return dao.getAll();
+        }
+
+        @Override
+        protected void onPostExecute(List<Vergehen> vergehen) {
+            super.onPostExecute(vergehen);
+            setVergehen(vergehen);
         }
     }
 }

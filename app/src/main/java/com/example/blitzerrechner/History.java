@@ -20,7 +20,7 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        adapter = new HistoryListAdapter();
+        adapter = new HistoryListAdapter(this);
 
         recyclerView = findViewById(R.id.vergehen_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -47,4 +47,6 @@ public class History extends AppCompatActivity {
             adapter.setVergehen(vergehen);
         }
     }
+
+
 }
