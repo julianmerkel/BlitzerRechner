@@ -39,11 +39,11 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder
             (@NonNull RecyclerView.ViewHolder holder, int position) {
         TextView vergehensView = holder.itemView.findViewById(R.id.history_item);
-        String text = "<b>" + vergehensList.get(position).getVergehen() + " km/h </b>";
+        int geschw = vergehensList.get(position).getVergehen();
         int geld = vergehensList.get(position).getBußgeld();
         int id = vergehensList.get(position).getId();
 
-        vergehensView.setText("Geschwindigkeitsübertretung: " + Html.fromHtml(text) +"\nBußgeld: " + Html.fromHtml("<b>" + geld + " € </b>") + "\nID: " + id);
+        vergehensView.setText("Geschwindigkeitsübertretung: " + geschw + " km/h\nBußgeld: " + geld + " €" + "\nID: " + id);
 
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 

@@ -9,10 +9,10 @@ public class Vergehen{
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private final String vergehen;
+    private final int vergehen;
     private int bußgeld;
 
-    public Vergehen(String vergehen, int bußgeld) {
+    public Vergehen(int vergehen, int bußgeld) {
         this.vergehen = vergehen;
         this.bußgeld = bußgeld;
     }
@@ -25,7 +25,7 @@ public class Vergehen{
         this.id = id;
     }
 
-    public String getVergehen() {
+    public int getVergehen() {
         return vergehen;
     }
 
