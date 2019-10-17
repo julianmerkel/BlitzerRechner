@@ -2,6 +2,7 @@ package com.example.blitzerrechner;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Collections;
 import java.util.List;
+
 
 public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -37,7 +39,11 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public void onBindViewHolder
             (@NonNull RecyclerView.ViewHolder holder, int position) {
         TextView vergehensView = holder.itemView.findViewById(R.id.history_item);
-        vergehensView.setText(vergehensList.get(position).getVergehen());
+        String text = "<b>" + vergehensList.get(position).getVergehen() + " km/h </b>";
+        int geld = vergehensList.get(position).getBußgeld();
+        int id = vergehensList.get(position).getId();
+
+        vergehensView.setText("Geschwindigkeitsübertretung: " + Html.fromHtml(text) +"\nBußgeld: " + Html.fromHtml("<b>" + geld + " € </b>") + "\nID: " + id);
 
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 

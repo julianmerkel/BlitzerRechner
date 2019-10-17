@@ -13,7 +13,7 @@ public interface HistoryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Vergehen vergehen);
 
-    @Query("SELECT * from Vergehen")
+    @Query("SELECT * from Vergehen ORDER BY id DESC")
     public List<Vergehen> getAll();
 
     @Delete

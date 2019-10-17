@@ -43,7 +43,8 @@ public class Screen3 extends AppCompatActivity {
         String ort = parameter.get(0);
         int erlaubt = Integer.parseInt(parameter.get(1));
         int gefahren = Integer.parseInt(parameter.get(2));
-        String bußgeld = "";
+       // String bußgeld = "";
+        int bußgeld = 0;
         String zuSchnell = Integer.toString(gefahren - erlaubt);
         String zuSchnellmitToleranz = "";
         String strafbareGeschw = "";
@@ -71,53 +72,12 @@ public class Screen3 extends AppCompatActivity {
             }
         }
 
-        // Bußgeld berechnen
-        if(Integer.parseInt(strafbareGeschw) > 0 && Integer.parseInt(strafbareGeschw) <= 10 && ort.equals("innerorts")){
-            bußgeld = "15";
-        }else if(Integer.parseInt(strafbareGeschw) > 10 && Integer.parseInt(strafbareGeschw) <= 15 && ort.equals("innerorts")){
-            bußgeld = "25";
-        }else if(Integer.parseInt(strafbareGeschw) > 15 && Integer.parseInt(strafbareGeschw) <= 20 && ort.equals("innerorts")){
-            bußgeld = "35";
-        }else if(Integer.parseInt(strafbareGeschw) > 20 && Integer.parseInt(strafbareGeschw) <= 25 && ort.equals("innerorts")){
-            bußgeld = "80";
-        }else if(Integer.parseInt(strafbareGeschw) > 25 && Integer.parseInt(strafbareGeschw) <= 30 && ort.equals("innerorts")){
-            bußgeld = "100";
-        }else if(Integer.parseInt(strafbareGeschw) > 30 && Integer.parseInt(strafbareGeschw) <= 40 && ort.equals("innerorts")){
-            bußgeld = "160";
-        }else if(Integer.parseInt(strafbareGeschw) > 40 && Integer.parseInt(strafbareGeschw) <= 50 && ort.equals("innerorts")){
-            bußgeld = "200";
-        }else if(Integer.parseInt(strafbareGeschw) > 50 && Integer.parseInt(strafbareGeschw) <= 60 && ort.equals("innerorts")){
-            bußgeld = "280";
-        }else if(Integer.parseInt(strafbareGeschw) > 60 && Integer.parseInt(strafbareGeschw) <= 70 && ort.equals("innerorts")){
-            bußgeld = "480";
-        }else if(Integer.parseInt(strafbareGeschw) > 70 && ort.equals("innerorts")){
-            bußgeld = "680";
-        }else if(Integer.parseInt(strafbareGeschw) > 0 && Integer.parseInt(strafbareGeschw) <= 10 && ort.equals("ausserorts")){
-            bußgeld = "10";
-        }else if(Integer.parseInt(strafbareGeschw) > 10 && Integer.parseInt(strafbareGeschw) <= 15 && ort.equals("ausserorts")){
-            bußgeld = "20";
-        }else if(Integer.parseInt(strafbareGeschw) > 15 && Integer.parseInt(strafbareGeschw) <= 20 && ort.equals("ausserorts")){
-            bußgeld = "30";
-        }else if(Integer.parseInt(strafbareGeschw) > 20 && Integer.parseInt(strafbareGeschw) <= 25 && ort.equals("ausserorts")){
-            bußgeld = "70";
-        }else if(Integer.parseInt(strafbareGeschw) > 25 && Integer.parseInt(strafbareGeschw) <= 30 && ort.equals("ausserorts")){
-            bußgeld = "80";
-        }else if(Integer.parseInt(strafbareGeschw) > 30 && Integer.parseInt(strafbareGeschw) <= 40 && ort.equals("ausserorts")){
-            bußgeld = "120";
-        }else if(Integer.parseInt(strafbareGeschw) > 40 && Integer.parseInt(strafbareGeschw) <= 50 && ort.equals("ausserorts")){
-            bußgeld = "160";
-        }else if(Integer.parseInt(strafbareGeschw) > 50 && Integer.parseInt(strafbareGeschw) <= 60 && ort.equals("ausserorts")){
-            bußgeld = "240";
-        }else if(Integer.parseInt(strafbareGeschw) > 60 && Integer.parseInt(strafbareGeschw) <= 70 && ort.equals("ausserorts")){
-            bußgeld = "440";
-        }else if(Integer.parseInt(strafbareGeschw) > 70 && ort.equals("ausserorts")){
-            bußgeld = "600";
+        bußgeld = bußgeldBerechnen(strafbareGeschw, ort);
+
+        if(bußgeld != 0){
+            res = res + " Das Bußgeld beträgt " + bußgeld + "€. ";
         }else{
             res = res + " Es wird kein Bußgeld fällig.";
-        }
-
-        if(!bußgeld.equals("")){
-            res = res + " Das Bußgeld beträgt " + bußgeld + "€. ";
         }
 
         // Ausgabe
@@ -138,6 +98,60 @@ public class Screen3 extends AppCompatActivity {
 
     }
 
+
+    // Methode, die das Bußgeld berechnet
+    public int bußgeldBerechnen(String geschw, String o){
+        String ort = o;
+        String strafbareGeschw = geschw;
+        int bußgeld = 0;
+
+        if(Integer.parseInt(strafbareGeschw) > 0 && Integer.parseInt(strafbareGeschw) <= 10 && ort.equals("innerorts")){
+            bußgeld = 15;
+        }else if(Integer.parseInt(strafbareGeschw) > 10 && Integer.parseInt(strafbareGeschw) <= 15 && ort.equals("innerorts")){
+            bußgeld = 25;
+        }else if(Integer.parseInt(strafbareGeschw) > 15 && Integer.parseInt(strafbareGeschw) <= 20 && ort.equals("innerorts")){
+            bußgeld = 35;
+        }else if(Integer.parseInt(strafbareGeschw) > 20 && Integer.parseInt(strafbareGeschw) <= 25 && ort.equals("innerorts")){
+            bußgeld = 80;
+        }else if(Integer.parseInt(strafbareGeschw) > 25 && Integer.parseInt(strafbareGeschw) <= 30 && ort.equals("innerorts")){
+            bußgeld = 100;
+        }else if(Integer.parseInt(strafbareGeschw) > 30 && Integer.parseInt(strafbareGeschw) <= 40 && ort.equals("innerorts")){
+            bußgeld = 160;
+        }else if(Integer.parseInt(strafbareGeschw) > 40 && Integer.parseInt(strafbareGeschw) <= 50 && ort.equals("innerorts")){
+            bußgeld = 200;
+        }else if(Integer.parseInt(strafbareGeschw) > 50 && Integer.parseInt(strafbareGeschw) <= 60 && ort.equals("innerorts")){
+            bußgeld = 280;
+        }else if(Integer.parseInt(strafbareGeschw) > 60 && Integer.parseInt(strafbareGeschw) <= 70 && ort.equals("innerorts")){
+            bußgeld = 480;
+        }else if(Integer.parseInt(strafbareGeschw) > 70 && ort.equals("innerorts")){
+            bußgeld = 680;
+        }else if(Integer.parseInt(strafbareGeschw) > 0 && Integer.parseInt(strafbareGeschw) <= 10 && ort.equals("ausserorts")){
+            bußgeld = 10;
+        }else if(Integer.parseInt(strafbareGeschw) > 10 && Integer.parseInt(strafbareGeschw) <= 15 && ort.equals("ausserorts")){
+            bußgeld = 20;
+        }else if(Integer.parseInt(strafbareGeschw) > 15 && Integer.parseInt(strafbareGeschw) <= 20 && ort.equals("ausserorts")){
+            bußgeld = 30;
+        }else if(Integer.parseInt(strafbareGeschw) > 20 && Integer.parseInt(strafbareGeschw) <= 25 && ort.equals("ausserorts")){
+            bußgeld = 70;
+        }else if(Integer.parseInt(strafbareGeschw) > 25 && Integer.parseInt(strafbareGeschw) <= 30 && ort.equals("ausserorts")){
+            bußgeld = 80;
+        }else if(Integer.parseInt(strafbareGeschw) > 30 && Integer.parseInt(strafbareGeschw) <= 40 && ort.equals("ausserorts")){
+            bußgeld = 120;
+        }else if(Integer.parseInt(strafbareGeschw) > 40 && Integer.parseInt(strafbareGeschw) <= 50 && ort.equals("ausserorts")){
+            bußgeld = 160;
+        }else if(Integer.parseInt(strafbareGeschw) > 50 && Integer.parseInt(strafbareGeschw) <= 60 && ort.equals("ausserorts")){
+            bußgeld = 240;
+        }else if(Integer.parseInt(strafbareGeschw) > 60 && Integer.parseInt(strafbareGeschw) <= 70 && ort.equals("ausserorts")){
+            bußgeld = 440;
+        }else if(Integer.parseInt(strafbareGeschw) > 70 && ort.equals("ausserorts")){
+            bußgeld = 600;
+        }
+
+        return bußgeld;
+    }
+
+
+
     private void saveVergehenOnClick() {
         Intent intent = getIntent();
         parameter = intent.getStringArrayListExtra("parameter");
@@ -146,6 +160,7 @@ public class Screen3 extends AppCompatActivity {
         int gefahren = Integer.parseInt(parameter.get(2));
         String zuSchnell = Integer.toString(gefahren - erlaubt);
         String zuSchnellmitToleranz = "";
+        int bußgeld = 15;
 
         // Toleranz abziehen und Geschwindigkeit speichern
 
@@ -162,12 +177,12 @@ public class Screen3 extends AppCompatActivity {
         if (Boolean.parseBoolean(parameter.get(4)) == true && !zuSchnellmitToleranz.isEmpty()) {
             res = res + " Abzüglich Toleranz sind das " + zuSchnellmitToleranz + " km/h zu schnell.";
             new SpeichernTask()
-                    .execute(new Vergehen(zuSchnellmitToleranz.toString()));
+                    .execute(new Vergehen(zuSchnellmitToleranz.toString(), bußgeld));
             Toast toast = Toast.makeText(context, "Die Geschwindigkeitsübertretung von " + zuSchnellmitToleranz + " km/h wurde gespeichert.", Toast.LENGTH_LONG);
             toast.show();
         }else if(Boolean.parseBoolean(parameter.get(4)) == false && !zuSchnell.isEmpty()) {
             new SpeichernTask()
-                    .execute(new Vergehen(zuSchnell.toString()));
+                    .execute(new Vergehen(zuSchnell.toString(), bußgeld));
             Toast toast = Toast.makeText(context, "Die Geschwindigkeitsübertretung von " + zuSchnell + " km/h wurde gespeichert.", Toast.LENGTH_LONG);
             toast.show();
         }else{}
