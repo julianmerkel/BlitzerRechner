@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
+
+    <TextView
+        android:id="@+id/gesamtBußgeld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_speichern_button"/>
+
+
     <TextView
         android:id="@+id/history_item"
         android:layout_width="match_parent"
@@ -15,8 +24,6 @@
         android:textColor="#000000"
         android:background="@drawable/rounded_corners"
         android:drawableRight="@android:drawable/ic_menu_delete"/>
-
-
 
 
 

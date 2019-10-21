@@ -16,6 +16,9 @@ public interface HistoryDao {
     @Query("SELECT * from Vergehen ORDER BY id DESC")
     public List<Vergehen> getAll();
 
+    @Query("SELECT bußgeld from Vergehen")
+    public List<Integer> getGesamtBußgeld();
+
     @Delete
     public void delete(Vergehen vergehen);
 }

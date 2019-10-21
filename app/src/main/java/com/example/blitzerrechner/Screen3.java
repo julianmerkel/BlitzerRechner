@@ -19,7 +19,6 @@ public class Screen3 extends AppCompatActivity {
     TextView textView;
     ArrayList<String> parameter;
     Button buttonSpeichern;
-    Button buttonHistory;
 
     private HistoryDao dao;
 
@@ -27,6 +26,7 @@ public class Screen3 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.screen3);
+        buttonSpeichern = findViewById(R.id.button_speichern);
 
         dao = HistoryRoomDatabase.getDatabase(this).historyDao();
 
@@ -45,6 +45,7 @@ public class Screen3 extends AppCompatActivity {
         strafbareGeschw = geschwindigkeitBerechnen(erlaubt, gefahren);
         if(strafbareGeschw <= 0){
             res = "Du bist doch überhaupt nicht zu schnell gefahren du Otto. Alles richtig gemacht - du kannst dein Geld behalten.";
+            buttonSpeichern.setEnabled(false);
         }else{
             res = "Du bist " + ort + " " + zuSchnell + " km/h zu schnell gefahren." + "\nDie strafbare Geschwindigkeit beträgt " + strafbareGeschw + " km/h.";
         }
@@ -62,16 +63,11 @@ public class Screen3 extends AppCompatActivity {
 
 
         // Button mit Klick-Listener belegen
-        buttonSpeichern = findViewById(R.id.button_speichern);
         int finalBußgeld = bußgeld;
         buttonSpeichern.setOnClickListener(view -> {
             saveVergehenOnClick(strafbareGeschw, finalBußgeld);
-        });
-
-        buttonHistory = findViewById(R.id.buttonHistory);
-        buttonHistory.setOnClickListener((view) -> {
-            Intent intentHistory = new Intent(this, History.class);
-            startActivity(intentHistory);
+            Intent intentMain = new Intent(this, MainActivity.class);
+            startActivity(intentMain);
         });
 
     }
