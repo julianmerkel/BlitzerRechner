@@ -40,7 +40,7 @@ public class History extends AppCompatActivity {
         }
 
         gesamtBußgeld.setText("Gesamtes Bußgeld: " + gB); */
-
+ // Test - Kommentar
 
     }
 
