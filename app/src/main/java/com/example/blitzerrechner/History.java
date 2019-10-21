@@ -13,7 +13,6 @@ import java.util.List;
 
 public class History extends AppCompatActivity {
 
-    private List<Vergehen> vergehensList = Collections.emptyList();
     private HistoryDao dao;
     private RecyclerView recyclerView;
     private HistoryListAdapter adapter;
@@ -34,13 +33,7 @@ public class History extends AppCompatActivity {
         dao = HistoryRoomDatabase.getDatabase(this).historyDao();
 
 
-    /*    int gB = 0;
-        for (int i = 0; i < vergehensList.size(); i++){
-            gB = gB + vergehensList.get(i).getBußgeld();
-        }
 
-        gesamtBußgeld.setText("Gesamtes Bußgeld: " + gB); */
- // Test - Kommentar
 
     }
 
@@ -61,6 +54,11 @@ public class History extends AppCompatActivity {
         protected void onPostExecute(List<Vergehen> vergehen){
             super.onPostExecute(vergehen);
             adapter.setVergehen(vergehen);
+            int gB = 0;
+            for (int i = 0; i < vergehen.size(); i++){
+                gB = gB + vergehen.get(i).getBußgeld();
+            }
+            gesamtBußgeld.setText("Das gesamte Bußgeld beträgt: " + gB + " €");
         }
     }
 

@@ -3,11 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-  <!--  <TextView
+    <TextView
         android:id="@+id/gesamtBußgeld"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_speichern_button"/> -->
+        android:textSize="20dp"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:background="@drawable/background_gesamtgeld_button"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/vergehen_recycler_view"

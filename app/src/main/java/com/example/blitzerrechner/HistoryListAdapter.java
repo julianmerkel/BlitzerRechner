@@ -43,13 +43,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         int geschw = vergehensList.get(position).getVergehen();
         int geld = vergehensList.get(position).getBußgeld();
         int id = vergehensList.get(position).getId();
-        int simon = 0;
-        for (int i = 0; i < vergehensList.size(); i++){
-            simon = simon + vergehensList.get(i).getBußgeld();
-        }
 
         vergehensView.setText("Geschwindigkeitsübertretung: " + geschw + " km/h\nBußgeld: " + geld + " €" );
-        bußgeldsView.setText("Gesamtes Bußgeld: " + simon);
 
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 
