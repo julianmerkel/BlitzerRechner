@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/blitzbackg">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="356dp"
+        android:layout_width="match_parent"
         android:layout_height="227dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@mipmap/innerorts_foreground"
-        />
+        app:srcCompat="@mipmap/ib2_foreground" />
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="356dp"
+        android:layout_width="match_parent"
         android:layout_height="227dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.19999999"
-        app:srcCompat="@mipmap/ausserorts_foreground" />
+        app:srcCompat="@mipmap/ab_foreground" />
 
     <TextView
         android:id="@+id/textView3"
@@ -38,6 +35,7 @@
         android:layout_marginTop="30dp"
         android:text="Wo wurdest du geblitzt?"
         android:textSize="36sp"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -47,10 +45,24 @@
         android:id="@+id/buttonHistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="History"
         android:layout_margin="20dp"
         android:background="@drawable/background_history_button"
         android:focusableInTouchMode="false"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        android:text="History"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav"
+        app:itemIconTint="@android:color/white"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
