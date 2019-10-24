@@ -1,6 +1,8 @@
 package com.example.blitzerrechner;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -49,7 +51,31 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 
         holder.itemView.setOnClickListener((view) -> {
-            new DeleteTask().execute(vergehensList.get(position));
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
+            dialogBuilder.setMessage("Wirklich löschen?");
+
+            DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    switch(which){
+                        case DialogInterface.BUTTON_POSITIVE:
+                            new DeleteTask().execute(vergehensList.get(position));
+                            break;
+
+                        case DialogInterface.BUTTON_NEGATIVE:
+                            break;
+                    }
+                }
+            };
+
+
+            dialogBuilder.setPositiveButton("Ja klaro", dialogClickListener);
+            dialogBuilder.setNegativeButton("Nee lass mal", dialogClickListener);
+            AlertDialog dialog = dialogBuilder.create();
+            dialog.show();
+
+
+
         });
     }
 
@@ -74,6 +100,13 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         @Override
         protected List<Vergehen> doInBackground(Vergehen... vergehen) {
+    /*        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder();
+            dialogBuilder.setMessage("Wirklich löschen?");
+            dialogBuilder.setPositiveButton("Ja klaro", null);
+
+            AlertDialog dialog = dialogBuilder.create();
+            dialog.show(); */
+
             dao.delete(vergehen[0]);
             return dao.getAll();
         }
