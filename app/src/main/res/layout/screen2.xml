@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/blitzbackg"
     tools:context=".Screen2">
 
 
@@ -77,6 +78,7 @@
             android:hint="Erlaubte Geschwindigkeit"
             android:inputType="number"
             android:singleLine="true"
+            android:textColor="#FFFFFF"
             android:textColorLink="#4CAF50"
             android:textCursorDrawable="@color/colorPrimary" />
 
