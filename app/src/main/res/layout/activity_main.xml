@@ -26,7 +26,7 @@
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@mipmap/a_white_foreground" />
+        app:srcCompat="@mipmap/ad_white_foreground" />
 
     <TextView
         android:id="@+id/textView3"
