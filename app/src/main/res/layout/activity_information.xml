@@ -8,62 +8,40 @@
     tools:context=".MainActivity"
     android:background="@drawable/blitzbackg">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="227dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:srcCompat="@mipmap/i_white_foreground" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="227dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@mipmap/a_white_foreground" />
-
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/überschriftInformation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Wo wurdest du geblitzt?"
+        android:text="Information"
         android:textSize="36sp"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <Button
-        android:id="@+id/buttonHistory"
+    <TextView
+        android:id="@+id/textInformation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:background="@drawable/background_history_button"
-        android:focusableInTouchMode="false"
-        android:text="History"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        tools:layout_editor_absoluteX="20dp" />
+        android:layout_margin="20dp"
+        android:padding="5dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/überschriftInformation"
+        android:background="@drawable/rounded_corners"/>
 
     <Button
-        android:id="@+id/buttonInformation"
+        android:id="@+id/tabelleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
+        android:text="Tabelle anzeigen"
+        android:layout_margin="30dp"
         android:background="@drawable/background_history_button"
-        android:focusableInTouchMode="false"
-        android:text="Information"
-        android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@+id/buttonHistory" />
+        app:layout_constraintTop_toBottomOf="@id/textInformation"/>
+
+
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

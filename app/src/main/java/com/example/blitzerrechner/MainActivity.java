@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageViewInnerorts;
     ImageView ImageViewAusserorts;
     Button buttonHistory;
+    Button buttonInformation;
     TextView textView;
     Intent intent;
     //Intent intentHistory = new Intent(this, History.class);
@@ -77,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         buttonHistory.setOnClickListener((view) -> {
             Intent intentHistory = new Intent(this, History.class);
             startActivity(intentHistory);
+        });
+
+        buttonInformation = findViewById(R.id.buttonInformation);
+        buttonInformation.setOnClickListener((view) -> {
+            Intent intentInformation = new Intent(this, Information.class);
+            startActivity(intentInformation);
         });
 
     }
