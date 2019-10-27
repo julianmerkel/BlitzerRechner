@@ -26,8 +26,12 @@
         <item name="android:textSize">15dp</item>
     </style>
 
-    <style name="ToggleStyle">
-   <!--     <item name="android:background">@drawable/toggle_background</item> -->
+
+
+
+    <style name="TextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">#fff</item>
+        <item name="boxStrokeWidth">2dp</item>
     </style>
 
 
