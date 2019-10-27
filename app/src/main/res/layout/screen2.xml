@@ -73,12 +73,14 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Gefahrene Geschwindigkeit"
+            android:inputType="number"
             android:singleLine="true"
             android:textColor="#FFFFFF"
-            android:hint="Gefahrene Geschwindigkeit"
-            android:textSize="30sp"
-            android:inputType="number"
-            />
+            android:textColorHint="@color/colorWhite"
+            android:textColorLink="@color/colorWhite"
+            android:textCursorDrawable="@color/colorWhite"
+            android:textSize="30sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -143,18 +145,18 @@
         app:layout_constraintEnd_toEndOf="parent"-->
 
 
-
     <Button
         android:id="@+id/buttonBerechnung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="confirmInput"
-        android:text="Berechnen"
-        android:textSize="14sp"
-        android:textColor="#FFFFFF"
         android:layout_margin="10dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_background"
-        app:layout_constraintTop_toBottomOf="@+id/switchToleranzTest"/>
+        android:onClick="confirmInput"
+        android:text="Berechnen"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/switchToleranzTest"
+        tools:layout_editor_absoluteX="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
