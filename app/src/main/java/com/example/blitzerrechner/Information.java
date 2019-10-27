@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 public class Information extends AppCompatActivity {
     TextView infoÜberschrift;
     TextView infoText;
@@ -17,6 +19,7 @@ public class Information extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
+        setUpBottomNav();
 
         infoÜberschrift = findViewById(R.id.überschriftInformation);
         infoText = findViewById(R.id.textInformation);
@@ -41,5 +44,10 @@ public class Information extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(httpUri);
         return intent;
+    }
+
+    private void setUpBottomNav(){
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
     }
 }

@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -31,6 +33,9 @@ public class History extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         dao = HistoryRoomDatabase.getDatabase(this).historyDao();
+
+        setUpBottomNav();
+
 
 
 
@@ -59,7 +64,14 @@ public class History extends AppCompatActivity {
                 gB = gB + vergehen.get(i).getBußgeld();
             }
             gesamtBußgeld.setText("Das gesamte Bußgeld beträgt: " + gB + " €");
+
         }
     }
+
+    private void setUpBottomNav(){
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+    }
+
 
 }

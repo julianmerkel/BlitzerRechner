@@ -14,6 +14,7 @@ import android.widget.ToggleButton;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import java.util.ArrayList;
 
@@ -44,6 +45,7 @@ public class Screen2 extends AppCompatActivity {
         // editText = new TextInputEditText(editLayout.getContext());
         //probezeit = findViewById(R.id.switchProbezeit);
         toleranz = findViewById(R.id.switchToleranz);
+        setUpBottomNav();
 
 
 
@@ -136,4 +138,9 @@ public class Screen2 extends AppCompatActivity {
         intent3.putStringArrayListExtra("parameter", parameter);
         startActivity(Screen2.this.intent3);
     }
+    private void setUpBottomNav(){
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+    }
+
 }

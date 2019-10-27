@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.util.ArrayList;
 
 public class Screen3 extends AppCompatActivity {
@@ -30,6 +32,8 @@ public class Screen3 extends AppCompatActivity {
         buttonSpeichern = findViewById(R.id.button_speichern);
 
         dao = HistoryRoomDatabase.getDatabase(this).historyDao();
+
+        setUpBottomNav();
 
         textView = findViewById(R.id.textView3);
         Intent intent = getIntent();
@@ -163,6 +167,12 @@ public class Screen3 extends AppCompatActivity {
             super.onPostExecute(aVoid);
         }
     }
+
+    private void setUpBottomNav(){
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+    }
+
 
 
 }

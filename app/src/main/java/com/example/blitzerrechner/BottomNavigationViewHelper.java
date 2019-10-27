@@ -9,9 +9,9 @@ public class BottomNavigationViewHelper {
 
 
     public static void setUpBottomNavigationView(BottomNavigationViewEx bottomNavigationViewEx){
-        bottomNavigationViewEx.enableAnimation(true);
-        bottomNavigationViewEx.enableItemShiftingMode(true);
-        bottomNavigationViewEx.enableShiftingMode(true);
+        bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
         bottomNavigationViewEx.setCurrentItem(1);
     }
