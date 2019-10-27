@@ -78,17 +78,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        buttonHistory = findViewById(R.id.buttonHistory);
-        buttonHistory.setOnClickListener((view) -> {
-            Intent intentHistory = new Intent(this, History.class);
-            startActivity(intentHistory);
-        });
-
-        buttonInformation = findViewById(R.id.buttonInformation);
-        buttonInformation.setOnClickListener((view) -> {
-            Intent intentInformation = new Intent(this, Information.class);
-            startActivity(intentInformation);
-        });
 
     }
 

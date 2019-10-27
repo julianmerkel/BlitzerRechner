@@ -141,6 +141,7 @@ public class Screen2 extends AppCompatActivity {
     private void setUpBottomNav(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNav(Screen2.this,bottomNavigationViewEx);
     }
 
 }

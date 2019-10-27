@@ -71,6 +71,7 @@ public class History extends AppCompatActivity {
     private void setUpBottomNav(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNav(History.this,bottomNavigationViewEx);
     }
 
 
