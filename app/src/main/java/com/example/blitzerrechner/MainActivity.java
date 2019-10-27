@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
 import java.util.ArrayList;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setUpBottomNav();
 
         dao = HistoryRoomDatabase.getDatabase(this).historyDao();
 
@@ -81,5 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setUpBottomNav(){
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
+        BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+    }
 
 }
