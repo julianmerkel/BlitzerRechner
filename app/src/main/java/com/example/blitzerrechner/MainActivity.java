@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUpBottomNav(){
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavigationView);
         BottomNavigationViewHelper.setUpBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNav(MainActivity.this,bottomNavigationViewEx);
     }
 
 }
