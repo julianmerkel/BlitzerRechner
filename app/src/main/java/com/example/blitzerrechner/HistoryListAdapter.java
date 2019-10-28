@@ -50,7 +50,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         int fahrverbot = vergehensList.get(position).getFahrverbot();
         int id = vergehensList.get(position).getId();
 
-        vergehensView.setText("Geschwindigkeitsübertretung: " + geschw + " km/h\nBußgeld: " + geld + " €" +"\nPunkte: "+punkte+"\nFahrverbot: "+fahrverbot+" Monat(e)");
+        vergehensView.setText("Zu Schnell: " + geschw + " km/h\nBußgeld: " + geld + " €" +"\nPunkte: "+punkte+"\nFahrverbot: "+fahrverbot+" Monat(e)");
 
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 
