@@ -65,7 +65,7 @@ public class History extends AppCompatActivity {
                 gB = gB + vergehen.get(i).getBußgeld();
                 gP = gP + vergehen.get(i).getPunkte();
             }
-            gesamtBußgeld.setText("Gesamtbußgeld: " + gB + " €"+ "Gesamtanzahl Punkte: "+gP);
+            gesamtBußgeld.setText("Gesamtbußgeld: " + gB + " €\n"+ "Gesamtanzahl Punkte: "+gP);
 
         }
     }
