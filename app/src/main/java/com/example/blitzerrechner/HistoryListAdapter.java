@@ -56,7 +56,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         holder.itemView.setOnClickListener((view) -> {
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mContext);
-            dialogBuilder.setMessage("Wirklich löschen?");
+            dialogBuilder.setMessage("Willst du diesen Eintrag wirklich löschen?");
 
             DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                 @Override
@@ -73,8 +73,8 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             };
 
 
-            dialogBuilder.setPositiveButton("Ja klaro", dialogClickListener);
-            dialogBuilder.setNegativeButton("Nee lass mal", dialogClickListener);
+            dialogBuilder.setPositiveButton("Ja", dialogClickListener);
+            dialogBuilder.setNegativeButton("Nein", dialogClickListener);
             AlertDialog dialog = dialogBuilder.create();
             dialog.show();
 

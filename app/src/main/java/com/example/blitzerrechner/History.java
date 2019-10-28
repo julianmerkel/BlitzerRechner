@@ -19,6 +19,7 @@ public class History extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HistoryListAdapter adapter;
     private TextView gesamtBußgeld;
+    private TextView informationLöschen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class History extends AppCompatActivity {
         adapter = new HistoryListAdapter(this);
 
         gesamtBußgeld = findViewById(R.id.gesamtBußgeld);
+        informationLöschen = findViewById(R.id.informationLöschen);
         recyclerView = findViewById(R.id.vergehen_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

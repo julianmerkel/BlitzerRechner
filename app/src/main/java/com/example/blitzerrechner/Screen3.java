@@ -53,7 +53,7 @@ public class Screen3 extends AppCompatActivity {
         // Methodenaufruf zur Berechnung der strafbaren Geschwindigkeit
         strafbareGeschw = geschwindigkeitBerechnen(erlaubt, gefahren);
         if(strafbareGeschw <= 0){
-            res = "Du bist doch überhaupt nicht zu schnell gefahren du Otto. Alles richtig gemacht - du kannst dein Geld behalten.";
+            res = "Du bist nicht zu schnell gefahren und hast deswegen keine Strafen zu befürchten. Weiter so!";
             buttonSpeichern.setEnabled(false);
         }else{
             res = "Du bist " + ort + " " + zuSchnell + " km/h zu schnell gefahren." + "\nDie strafbare Geschwindigkeit beträgt " + strafbareGeschw + " km/h.";
