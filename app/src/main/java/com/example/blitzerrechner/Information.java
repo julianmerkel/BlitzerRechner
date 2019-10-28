@@ -24,12 +24,13 @@ public class Information extends AppCompatActivity {
         infoÜberschrift = findViewById(R.id.überschriftInformation);
         infoText = findViewById(R.id.textInformation);
 
-        infoText.setText("Du warst zu schnell unterwegs und wurdest gebitzt? \n" +
-                        "Mit Hilfe des Blitzer Rechners kannst Du ganz einfach ausrechnen, welches Strafmaß auf Dich zukommt." +
-                        "Gib einfach die erlaubte Geschwindigkeit und deine gefahrene Geschwindigkeit ein und schon geht es los! \n" +
-                        "Du kannst darüber entscheiden, ob die Toleranz für dich abgezogen werden soll oder nicht. Der Toleranzabzug beträgt meist 3 km/h. \n" +
-                        "Sobald du dein Ergebnis hast, kannst du entscheiden, ob du dieses Vergehen in der Datenbank speicher willst oder nicht." +
-                        "Aus allen abgespeicherten Vergehen wird das Gesamtbußgeld und die Gesamtzahl der Punkte in Flensburg errechnet.");
+        infoText.setText("Diese App ist ein Blitzer Rechner.\n" +
+                "Durch Eingeben Deiner gefahrenen sowie der eigentlich erlaubten Geschwindigkeit (Einheit: km/h), errechnet der Blitzer Rechner das Strafmaß, welches auf Dich zukommen könnte. Dabei werden sowohl das fällige Bußgeld als auch die möglicherweise anfallenden Punkte in Flensburg oder Fahrverbote berücksichtigt.\n\n" +
+                "Es besteht die Möglichkeit, den Toleranzabzug bei der Rechnung miteinzubeziehen. Die Toleranz errechnet sich hierbei folgendermaßen:\n" +
+                "Bei Geschwindigkeiten unter 100 km/h: \nToleranzabzug = 3 km/h\n" +
+                "Bei Geschwindigkeiten über 100 km/h: \nToleranzabzug = (0.03 * gefahrene Geschw.) km/h\n\n" +
+                "Das Strafmaß wird anhand der überschrittenen Geschwindigkeit und dem Bußgeldkatalog berechnet. Allerdings kann es durch wiederholte Vergehen zu Punktstrafen kommen, welche in dieser App nicht berücksichtigt sind. Es wird außerdem davon ausgegangen, dass Du Dich nicht mehr in der Probezeit befindest.\n" +
+                "Die aktuelle Version des Bußgeldkatalogs, auf welchem diese App basiert, kannst Du über den Button am Ende dieser Seite erreichen.\n");
 
         buttonTabelle = findViewById(R.id.tabelleButton);
         buttonTabelle.setOnClickListener((view) -> {
