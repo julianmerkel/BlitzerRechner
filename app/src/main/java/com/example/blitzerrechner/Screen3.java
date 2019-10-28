@@ -35,7 +35,7 @@ public class Screen3 extends AppCompatActivity {
 
         setUpBottomNav();
 
-        textView = findViewById(R.id.textView3);
+        textView = findViewById(R.id.Ausgabe);
         Intent intent = getIntent();
         parameter = intent.getStringArrayListExtra("parameter");
         int erlaubt = Integer.parseInt(parameter.get(1));

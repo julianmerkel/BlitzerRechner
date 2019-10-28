@@ -10,35 +10,48 @@
 
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/überschriftAusgabe"
+        android:layout_marginTop="30dp"
+        android:text="Ergebnis"
+        android:textSize="36sp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Ausgabe"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/rounded_corners"/>
+
+    <TextView
         style="@style/TextviewStyle"
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/Ausgabe"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="200dp"
         android:textSize="24dp"
         android:textAlignment="center"
         android:justificationMode="inter_word"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_speichern"
+        app:layout_constraintTop_toBottomOf="@id/überschriftAusgabe"
         android:textColor="#FFFFFF"
-        android:background="@drawable/rounded_corners"/>
+        android:background="@drawable/textfield_background"/>
 
 
     <Button
         android:id="@+id/button_speichern"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_margin="10dp"
         android:text="Speichern"
         android:textColor="@color/colorWhite"
         android:background="@drawable/background_speichern_button"
         android:focusableInTouchMode="false"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/Ausgabe"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

@@ -8,6 +8,19 @@
     tools:context=".MainActivity"
     android:background="@drawable/blitzbackg">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Wo wurdest du geblitzt?"
+        android:textSize="32sp"
+        android:padding="10dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
@@ -28,17 +41,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@mipmap/ad_white_foreground" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Wo wurdest du geblitzt?"
-        android:textSize="36sp"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     =======

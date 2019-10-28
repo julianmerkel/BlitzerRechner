@@ -19,47 +19,20 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inputErlaubteGeschwindigkeit"
+        app:layout_constraintTop_toBottomOf="@id/inputGefahreneGeschwindigkeit"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/rounded_corners"/>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputErlaubteGeschwindigkeit"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:theme="@style/TextInputLayoutStyle"
-        android:layout_width="match_parent"
-        android:layout_height="78dp"
-        android:layout_marginTop="100dp"
-        android:singleLine="true"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        app:counterEnabled="true"
-        app:counterMaxLength="3"
-        app:errorEnabled="true"
-        app:helperText="z.B. 70"
-        app:layout_constraintTop_toBottomOf="@+id/überschriftBerechnung">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Erlaubte Geschwindigkeit"
-            android:inputType="number"
-            android:singleLine="true"
-            android:textColor="#FFFFFF"
-            android:textColorLink="#FFFFFF"
-            android:textSize="30sp"
-            android:textCursorDrawable="@color/colorWhite" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputGefahreneGeschwindigkeit"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:theme="@style/TextInputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:singleLine="true"
         app:counterEnabled="true"
         app:counterMaxLength="3"
@@ -67,8 +40,9 @@
         app:boxStrokeColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         app:helperText="z.B. 103"
-        app:helperTextTextAppearance="@color/colorWhite"
-        app:layout_constraintTop_toBottomOf="@+id/inputErlaubteGeschwindigkeit">
+        app:helperTextTextAppearance="@style/error_appearance"
+        app:errorTextAppearance="@style/error_appearance"
+        app:layout_constraintTop_toBottomOf="@+id/überschriftBerechnung">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -84,15 +58,51 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputErlaubteGeschwindigkeit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:theme="@style/TextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="35dp"
+        android:singleLine="true"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:counterEnabled="true"
+        app:counterMaxLength="3"
+        app:errorEnabled="true"
+        app:helperText="z.B. 70"
+        app:layout_constraintTop_toBottomOf="@+id/inputGefahreneGeschwindigkeit"
+        app:errorTextAppearance="@style/error_appearance"
+        app:helperTextTextAppearance="@style/error_appearance">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Erlaubte Geschwindigkeit"
+            android:inputType="number"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="@color/colorWhite"
+            android:textColorLink="@color/colorWhite"
+            android:textCursorDrawable="@color/colorWhite"
+            android:textSize="30sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/inputGefahreneGeschwindigkeit"
+        app:layout_constraintTop_toBottomOf="@id/inputErlaubteGeschwindigkeit"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/switchToleranzTest">
 
     <TextView
@@ -127,8 +137,9 @@
         android:id="@+id/buttonBerechnung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/button_background"
         android:onClick="confirmInput"
         android:text="Berechnen"
