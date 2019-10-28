@@ -3,6 +3,7 @@ package com.example.blitzerrechner;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private HistoryDao dao;
     private Context mContext;
+    Intent intent;
 
     HistoryListAdapter(Context context){
         mContext = context;
@@ -44,9 +46,11 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView bußgeldsView = holder.itemView.findViewById(R.id.gesamtBußgeld);
         int geschw = vergehensList.get(position).getVergehen();
         int geld = vergehensList.get(position).getBußgeld();
+        int punkte = vergehensList.get(position).getPunkte();
+        int fahrverbot = vergehensList.get(position).getFahrverbot();
         int id = vergehensList.get(position).getId();
 
-        vergehensView.setText("Geschwindigkeitsübertretung: " + geschw + " km/h\nBußgeld: " + geld + " €" );
+        vergehensView.setText("Geschwindigkeitsübertretung: " + geschw + " km/h\nBußgeld: " + geld + " €" +"\nPunkte: "+punkte+"\nFahrverbot: "+fahrverbot+" Monat(e)");
 
         dao = HistoryRoomDatabase.getDatabase(mContext).historyDao();
 
@@ -109,6 +113,7 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             dao.delete(vergehen[0]);
             return dao.getAll();
+
         }
 
         @Override
@@ -117,4 +122,6 @@ public class HistoryListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             setVergehen(vergehen);
         }
     }
+
+
 }

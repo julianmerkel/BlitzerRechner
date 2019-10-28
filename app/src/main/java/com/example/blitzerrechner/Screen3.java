@@ -43,6 +43,10 @@ public class Screen3 extends AppCompatActivity {
         int zuSchnell = gefahren - erlaubt;
         String ort = parameter.get(0);
         int bußgeld = 0;
+        int punkte = 0;
+        int fahrverbot =0;
+        int strafe[] = new int[3];
+
         int strafbareGeschw;
         String res = "";
 
@@ -56,9 +60,22 @@ public class Screen3 extends AppCompatActivity {
         }
 
         // Mehtodenaufrunf zur Berechnung des Bußgeldes
-        bußgeld = bußgeldBerechnen(strafbareGeschw, ort);
+        strafe = strafeBerechnen(strafbareGeschw, ort);
+        bußgeld = strafe[0];
+        punkte= strafe[1];
+        fahrverbot=strafe[2];
+
         if(bußgeld != 0){
-            res = res + " Das Bußgeld beträgt " + bußgeld + "€. ";
+            if(punkte==1&&fahrverbot==1){
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensbrug und "+fahrverbot+" Monat Fahrverbot.";
+            }else if(punkte==1&&fahrverbot!=1){
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensbrug und "+fahrverbot+" Monate Fahrverbot.";
+            }else if(punkte!=1&&fahrverbot==1){
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensbrug und "+fahrverbot+" Monat Fahrverbot.";
+            }else{
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensbrug und "+fahrverbot+" Monate Fahrverbot.";
+            }
+
         }else{
             res = res + " Es wird kein Bußgeld fällig.";
         }
@@ -69,8 +86,10 @@ public class Screen3 extends AppCompatActivity {
 
         // Button mit Klick-Listener belegen
         int finalBußgeld = bußgeld;
+        int finalPunkte = punkte;
+        int finalFahrverbot = fahrverbot;
         buttonSpeichern.setOnClickListener(view -> {
-            saveVergehenOnClick(strafbareGeschw, finalBußgeld);
+            saveVergehenOnClick(strafbareGeschw, finalBußgeld, finalPunkte, finalFahrverbot);
             Intent intentMain = new Intent(this, MainActivity.class);
             startActivity(intentMain);
         });
@@ -92,64 +111,134 @@ public class Screen3 extends AppCompatActivity {
     }
 
     // Methode, die das Bußgeld berechnet
-    public int bußgeldBerechnen(int strafbareGeschw, String ort){
-        int bußgeld = 0;
+    public int[] strafeBerechnen(int strafbareGeschw, String ort){
+        //int bußgeld = 0;
+
+        int strafe[] = new int[3];
+        strafe[0]=0;
+        strafe[1]=0;
+        strafe[2]=0;
+        //strafe[0] ist das bußgeld
+        //strafe[1] sind die Punkte
+        //strafe[2] sind die Monate Fahrverbot
 
         if(ort.equals("innerorts")){
             if(strafbareGeschw > 70){
-                bußgeld = 680;
+                //bußgeld = 680;
+                strafe[0]=680;
+                strafe[1]=2;
+                strafe[2]=3;
             }else if(strafbareGeschw > 60){
-                bußgeld = 480;
+                //bußgeld = 480;
+                strafe[0]=480;
+                strafe[1]=2;
+                strafe[2]=3;
             }else if(strafbareGeschw > 50){
-                bußgeld = 280;
+                //bußgeld = 280;
+                strafe[0]=280;
+                strafe[1]=2;
+                strafe[2]=2;
             }else if(strafbareGeschw > 40){
-                bußgeld = 200;
+                //bußgeld = 200;
+                strafe[0]=200;
+                strafe[1]=2;
+                strafe[2]=1;
             }else if(strafbareGeschw > 30){
-                bußgeld = 160;
+                //bußgeld = 160;
+                strafe[0]=160;
+                strafe[1]=2;
+                strafe[2]=1;
             }else if(strafbareGeschw > 25){
-                bußgeld = 100;
+                //bußgeld = 100;
+                strafe[0]=100;
+                strafe[1]=1;
+                strafe[2]=0;
             }else if(strafbareGeschw > 20){
-                bußgeld = 80;
+                //bußgeld = 80;
+                strafe[0]=80;
+                strafe[1]=1;
+                strafe[2]=0;
             }else if(strafbareGeschw > 15){
-                bußgeld = 35;
+                //bußgeld = 35;
+                strafe[0]=35;
+                strafe[1]=0;
+                strafe[2]=0;
             }else if(strafbareGeschw > 10){
-                bußgeld = 25;
+                //bußgeld = 25;
+                strafe[0]=25;
+                strafe[1]=0;
+                strafe[2]=0;
             }else if(strafbareGeschw > 0){
-                bußgeld = 15;
+                //bußgeld = 15;
+                strafe[0]=15;
+                strafe[1]=0;
+                strafe[2]=0;
+
             }
         }else if(ort.equals("ausserorts")){
             if(strafbareGeschw > 70){
-                bußgeld = 600;
+                //bußgeld = 600;
+                strafe[0]=600;
+                strafe[1]=2;
+                strafe[2]=3;
             }else if(strafbareGeschw > 60){
-                bußgeld = 440;
+                //bußgeld = 440;
+                strafe[0]=440;
+                strafe[1]=2;
+                strafe[2]=2;
             }else if(strafbareGeschw > 50){
-                bußgeld = 240;
+                //bußgeld = 240;
+                strafe[0]=240;
+                strafe[1]=2;
+                strafe[2]=1;
+
             }else if(strafbareGeschw > 40){
-                bußgeld = 160;
+                //bußgeld = 160;
+                strafe[0]=160;
+                strafe[1]=2;
+                strafe[2]=1;
             }else if(strafbareGeschw > 30){
-                bußgeld = 120;
+                //bußgeld = 120;
+                strafe[0]=120;
+                strafe[1]=1;
+                strafe[2]=0;
             }else if(strafbareGeschw > 25){
-                bußgeld = 80;
+                //bußgeld = 80;
+                strafe[0]=80;
+                strafe[1]=1;
+                strafe[2]=0;
             }else if(strafbareGeschw > 20){
-                bußgeld = 70;
+                //bußgeld = 70;
+                strafe[0]=70;
+                strafe[1]=1;
+                strafe[2]=0;
             }else if(strafbareGeschw > 15){
-                bußgeld = 30;
+                //bußgeld = 30;
+                strafe[0]=30;
+                strafe[1]=0;
+                strafe[2]=0;
             }else if(strafbareGeschw > 10){
-                bußgeld = 20;
+                //bußgeld = 20;
+                strafe[0]=20;
+                strafe[1]=0;
+                strafe[2]=0;
             }else if(strafbareGeschw > 0){
-                bußgeld = 10;
+                //bußgeld = 10;
+                strafe[0]=10;
+                strafe[1]=0;
+                strafe[2]=0;
             }
         }
 
-        return bußgeld;
+        return strafe;
     }
 
 
     // Speichern der Daten in die Datenbank und Ausgeben des Toasts
-    private void saveVergehenOnClick(int geschw, int bußgeld) {
+    private void saveVergehenOnClick(int geschw, int bußgeld, int punkte, int fahrverbot) {
         Context context = getApplicationContext();
         new SpeichernTask()
-                .execute(new Vergehen(geschw, bußgeld));
+                .execute(new Vergehen(geschw, bußgeld, punkte, fahrverbot));
         Toast toast = Toast.makeText(context, "Die Geschwindigkeitsübertretung von " + geschw + " km/h wurde gespeichert.", Toast.LENGTH_LONG);
         toast.show();
     }

@@ -19,6 +19,7 @@ public interface HistoryDao {
     @Query("SELECT bußgeld from Vergehen")
     public List<Integer> getGesamtBußgeld();
 
+
     @Delete
     public void delete(Vergehen vergehen);
 }

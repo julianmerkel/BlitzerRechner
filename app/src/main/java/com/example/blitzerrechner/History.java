@@ -60,10 +60,12 @@ public class History extends AppCompatActivity {
             super.onPostExecute(vergehen);
             adapter.setVergehen(vergehen);
             int gB = 0;
+            int gP =0;
             for (int i = 0; i < vergehen.size(); i++){
                 gB = gB + vergehen.get(i).getBußgeld();
+                gP = gP + vergehen.get(i).getPunkte();
             }
-            gesamtBußgeld.setText("Das gesamte Bußgeld beträgt: " + gB + " €");
+            gesamtBußgeld.setText("Gesamtbußgeld: " + gB + " €"+ "Gesamtanzahl Punkte: "+gP);
 
         }
     }

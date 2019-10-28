@@ -11,10 +11,15 @@ public class Vergehen{
     private int id;
     private final int vergehen;
     private int bußgeld;
+    private int punkte;
+    private int fahrverbot;
 
-    public Vergehen(int vergehen, int bußgeld) {
+    public Vergehen(int vergehen, int bußgeld, int punkte, int fahrverbot) {
         this.vergehen = vergehen;
         this.bußgeld = bußgeld;
+        this.punkte = punkte;
+        this.fahrverbot=fahrverbot;
+
     }
 
     public int getId(){
@@ -30,4 +35,12 @@ public class Vergehen{
     }
 
     public int getBußgeld(){ return bußgeld; }
+
+    public int getPunkte(){
+        return punkte;
+    }
+
+    public int getFahrverbot(){
+        return fahrverbot;
+    }
 }
