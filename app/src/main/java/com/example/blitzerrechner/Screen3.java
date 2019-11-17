@@ -67,13 +67,13 @@ public class Screen3 extends AppCompatActivity {
 
         if(bußgeld != 0){
             if(punkte==1&&fahrverbot==1){
-                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensbrug und "+fahrverbot+" Monat Fahrverbot.";
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensburg und "+fahrverbot+" Monat Fahrverbot.";
             }else if(punkte==1&&fahrverbot!=1){
-                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensbrug und "+fahrverbot+" Monate Fahrverbot.";
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkt in Flensburg und "+fahrverbot+" Monate Fahrverbot.";
             }else if(punkte!=1&&fahrverbot==1){
-                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensbrug und "+fahrverbot+" Monat Fahrverbot.";
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensburg und "+fahrverbot+" Monat Fahrverbot.";
             }else{
-                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensbrug und "+fahrverbot+" Monate Fahrverbot.";
+                res = res + " Dein Bußgeld beträgt " + bußgeld + "€. Du erhältst "+punkte+" Punkte in Flensburg und "+fahrverbot+" Monate Fahrverbot.";
             }
 
         }else{
