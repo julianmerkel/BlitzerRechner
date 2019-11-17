@@ -21,10 +21,6 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Boss-Comment
-    //Boss-Comment2
-    //Boss-Comment3
-
     ImageView imageViewInnerorts;
     ImageView ImageViewAusserorts;
     Button buttonHistory;
